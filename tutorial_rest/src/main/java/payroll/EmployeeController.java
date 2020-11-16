@@ -27,7 +27,7 @@ class EmployeeController {
 
     // Aggregate root
     @GetMapping("/employees")
-    CollectionModel<EntityModel<Employee>> all() {
+    public CollectionModel<EntityModel<Employee>> all() {
 
         List<EntityModel<Employee>> employees = repository.findAll().stream()
                 .map(employee -> EntityModel.of(employee,
@@ -40,7 +40,7 @@ class EmployeeController {
 
     // Single item
     @GetMapping("/employees/{id}")
-    EntityModel<Employee> one(@PathVariable Long id) {
+    public EntityModel<Employee> one(@PathVariable Long id) {
 
         Employee employee = repository.findById(id) //
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
@@ -51,12 +51,12 @@ class EmployeeController {
     }
 
     @PostMapping("/employees")
-    Employee newEmployee(@RequestBody Employee newEmployee) {
+    public Employee newEmployee(@RequestBody Employee newEmployee) {
         return repository.save(newEmployee);
     }
 
     @PutMapping("/employees/{id}")
-    Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
+    public Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
 
         return repository.findById(id).map(employee -> {
             employee.setName(newEmployee.getName());
@@ -69,7 +69,7 @@ class EmployeeController {
     }
 
     @DeleteMapping("/employees/{id}")
-    void deleteEmployee(@PathVariable Long id) {
+    public void deleteEmployee(@PathVariable Long id) {
         repository.deleteById(id);
     }
 }

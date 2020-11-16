@@ -1,10 +1,10 @@
-package com.example.tutorial_rest;
+package payroll;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TutorialRestApplicationTests {
+class PayrollApplicationTests {
 
 	@Test
 	void contextLoads() {

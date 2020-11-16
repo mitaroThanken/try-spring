@@ -24,3 +24,6 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
+
+# Install Spring Boot CLI 2.3.6 RELEASE
+RUN su vscode -c "source /usr/local/sdkman/bin/sdkman-init.sh && sdk install springboot 2.3.6.RELEASE"
